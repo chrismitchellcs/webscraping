@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Changed{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <h3 align="center">Search Craigslist</h3>
+    <div class="form-group">
+        <label for="search"></label>
+        <input type="search" class="form-control" id="search" name="search" placeholder="Enter your search">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br />
+<h1 align="center">Results</h1>
+<ul class="list-group list-group-flush" id="results">
+    {% for result in results %}
+    <a class="list-group-item">
+        <h4 class="list-group-item-heading">{{ result.title }}</h4>
+        <p class = "list-group-item-text">
+            {{ result.price }} | {{ result.location }}
+        </p>
+        <img src={{ result.photo }}  alt="Image not found" width="200" height="200"/>
+        <a href={{ result.link }} class="list-group-item list-group-item-action active" target="_blank">Go to craigslist page</a>
+        <br />
+    </a>
+    {% endfor %}
+</ul>
+<br />
+
+{% endblock %}

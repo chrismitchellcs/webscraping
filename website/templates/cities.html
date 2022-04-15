@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Changed{% endblock %}
+
+{% block content %}
+<h1 align="center">Cities</h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for city in cities %}
+    <li class="list-group-item">{{ city }}</li>
+    {% endfor %}
+</ul>
+<br />
+<form method="POST">
+    <h3 align="center">Choose Cities</h3>
+    <div class="form-group">
+        <label for="city">Add Cities</label>
+        <input type="city" class="form-control" id="city" name="city" placeholder="Add a city">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br />
+{% endblock %}
